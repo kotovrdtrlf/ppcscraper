@@ -113,7 +113,12 @@ async def startScraping(number_of_scrapes:int=1440, scraping_time:int=1440):
             time.sleep(seconds_between_scrapes - time_spent_scraping)
 
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
+    print('At this point, needed data has been scraped, scraping disabled')
+    
+    # preventing accidental script execution as not to damage already scraped data
+    """
+
     # setting up an asycnio event loop to schedule events
     loop = asyncio.get_event_loop()
     task = loop.create_task(startScraping())
@@ -124,4 +129,6 @@ if __name__ == '__main__':
         print("Event loop finished, scraping done")
     except asyncio.CancelledError:
         pass
+
+    """
 
